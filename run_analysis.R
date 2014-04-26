@@ -48,5 +48,5 @@ molten <- melt(merged, id=c("Activity", "Subject"), na.rm=TRUE)
 average_tidy <- dcast(molten, formula = Activity + Subject ~ variable, mean)
 message(paste("\t the average data set has ", nrow(average_tidy), " observations."))
 
-message("Dumping the merged content into average_tidy.txt")
+message("Dumping the casted content into average_tidy.txt")
 write.table(average_tidy, file="average_tidy.txt")
