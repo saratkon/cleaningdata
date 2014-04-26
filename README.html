@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Getting and Cleaning Data - Coursera - Peer assignment</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Getting and Cleaning Data - Coursera - Peer assignment</h1>
+
+<h2>Description</h2>
+
+<p>This repository contains the files that are associated with my work assignment for the course.</p>
+
+<h3>The following is a list of file present:</h3>
+
+<table><thead>
+<tr>
+<th>Name of the file</th>
+<th>Description of the contents</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>README.md</td>
+<td>This document</td>
+</tr>
+<tr>
+<td>UCI HAR DataSet</td>
+<td>The original raw data set</td>
+</tr>
+<tr>
+<td>run_analysis.r</td>
+<td>The main R-Script file that documents the work flow of the assignment</td>
+</tr>
+<tr>
+<td>helper.r</td>
+<td>A helper script that contains utility functions that will be used in the main script</td>
+</tr>
+<tr>
+<td>merged_tidy.txt</td>
+<td>The tidy data set containing the observations of means and stds of various readings in the original data set.</td>
+</tr>
+<tr>
+<td>average_tidy.text</td>
+<td>The tidy data set containing the averages of the observations in merged_tidy for each activity and subject combination</td>
+</tr>
+<tr>
+<td>CodeBook.md</td>
+<td>The code book describing the variables in the tidy data sets above</td>
+</tr>
+</tbody></table>
+
+<h4>UCI HAR DataSet</h4>
+
+<p>The original data set (a zip file) is downloaded from <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">here</a></p>
+
+<p>The contents of the zip were extracted and placed directly under this folder. This data is split into two parts, train and test and files corresponding to these types are available under train and test sub directories respectively.</p>
+
+<h4>run_analysis.r</h4>
+
+<p>This is the main script that contains the code to tidy up the raw data and extract the required data. When this script is run, two .txt files are created, namely merged_tidy.txt and average_tidy.xtx. The contents of these individual files are detailed below. A more detailed description of the features of these files are present in the CodeBook.md</p>
+
+<h4>helper.r</h4>
+
+<p>A helper script that has a utility function extractdata, which can be called on individual datatypes (test or train). This separation is done so as to reuse the code. Note that the steps required to tidy the training data set are exactly the same as tidying up the test data set.</p>
+
+<h4>merged_tify.txt</h4>
+
+<p>The required features were extrated using the grep command and supplying the following pattern ofr matching: &ldquo;mean() | std()&rdquo;. This would match all the features that contained the words &#39;mean()&#39; or &#39;std()&#39;.</p>
+
+<h4>average_tidy.txt</h4>
+
+<p>This pertains to the output for the second part of the assignment, where the mean of every extracted feature (means and stds) for each activity + subject combination is calculated and is written to a text file.</p>
+
+<h4>CodeBook.md</h4>
+
+<p>This code book describes the list of features containing in each of the above tidy data sets created.</p>
+
+<h3>Steps taken in the run_analysis.r to clean the raw data</h3>
+
+<h4>Part-1</h4>
+
+<ul>
+<li>The features available in the data set are read into allfeatures using read.table(&ldquo;./UCI HAR Dataset/features.txt&rdquo;)</li>
+<li>All the activity labels are read into activities data frame using read.table(&ldquo;./UCI HAR Dataset/activity_labels.txt&rdquo;)</li>
+<li>The activities data frame is converted into a character vector to easy the indexing process</li>
+<li>A match pattern is constructed to locate the required features (means and stds)</li>
+<li>Using the grep function and the above match pattern, the required features list is built into matchfeatures</li>
+<li>Next a colClasses variable (reqcols) is constructured which will aid in reading only the required columns from the data set. This is a huge advantage as less memory will be consumed using this process.</li>
+<li>We have all the top level building blocks to now work on the sub test and train data sets. We make use of the extractdata function iin helper.r</li>
+<li>Extract the tidy data from the train data by passing &ldquo;train&rdquo; as argument to the extractdata function.</li>
+<li>The test tidy data can be extract similarly by passing &ldquo;test&rdquo; as argument to the extractdata function.</li>
+<li>The merged data can be forming by combining test and train data sets using the rbind function</li>
+<li>Output the contents of this merged data frame to merged_tidy.txt</li>
+</ul>
+
+<h4>Part-2</h4>
+
+<ul>
+<li>Using the melt function in reshape2 package we combine the merged data to collapse the feature columns into variable and value</li>
+<li>Next dcast function is used to cast this meled data back into a data frame by passing the formula=Activity + Subject ~ variable. Also, since it was asked to calculate the means of the feature observations, we further collapse the identical rows using mean as argument to dcast function.</li>
+<li>Output the contents of this new casted data frame into average_tidy.txt</li>
+</ul>
+
+</body>
+
+</html>
+
